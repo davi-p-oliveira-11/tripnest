@@ -1,11 +1,35 @@
-function App() {
-  
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import Layout from "./layouts/Layout";
 
+const App = () => {
   return (
-    <h1 className="text-3xl font-bold text-blue-500">
-      I'm gonna watch Avenged Sevenfold live !
-    </h1>
-  )
-}
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <p>Home page</p>
+            </Layout>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <Layout>
+              <p>Search page</p>
+            </Layout>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
