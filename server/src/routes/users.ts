@@ -47,7 +47,7 @@ async (req: Request, res: Response) => {
         maxAge: 86400000,
      });
      
-     res.sendStatus(200);
+     return res.status(200).send({ message: "User registered OK ! " });
    } catch (error) {
      console.log(error);
      res.status(500).send({message: "Something went wrong"});  
