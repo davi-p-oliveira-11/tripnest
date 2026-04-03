@@ -73,7 +73,7 @@ export const addMyHotel = async (hotelFormData: FormData) => {
   });
 
   if (!response.ok) {
-     throw new Error("Failed to add hotel");
+    throw new Error("Failed to add hotel");
   }
 
   return response.json();
@@ -84,7 +84,7 @@ export const fetchMyHotels = async (): Promise<HotelType[]> => {
     credentials: "include"
   });
 
-  if(!response.ok) {
+  if (!response.ok) {
     throw new Error("Error fetching hotels");
   }
 
@@ -162,6 +162,16 @@ export const searchHotels = async (
 
   if (!response.ok) {
     throw new Error("Error fetching hotels");
+  }
+
+  return response.json();
+};
+
+
+export const fetchHotelById = async (hotelId: string): Promise<HotelType> => {
+  const response = await fetch(`${API_BASE_URL}/api/hotels/${hotelId}`);
+  if (!response.ok) {
+    throw new Error("Error fetching Hotels");
   }
 
   return response.json();
