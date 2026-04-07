@@ -53,7 +53,7 @@ test("should book hotel", async ({ page }) => {
 
   await page.getByRole("button", { name: "Search" }).click();
 
-  await page.getByText("Dublin Getaways").click();
+  await page.getByText("Halala Hotel").click();
   await page.getByRole("button", { name: "Book now" }).click();
 
   await expect(page.getByText("Total Cost: £357.00")).toBeVisible();
@@ -70,5 +70,5 @@ test("should book hotel", async ({ page }) => {
   await expect(page.getByText("Booking Saved!")).toBeVisible();
 
   await page.getByRole("link", { name: "My Bookings" }).click();
-  await expect(page.getByText("Dublin Getaways")).toBeVisible();
+  await expect(page.getByText("Halala Hotel")).toBeVisible();
 });
